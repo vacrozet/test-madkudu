@@ -1,0 +1,98 @@
+{
+  "post": {
+    "tags": [
+      "List"
+    ],
+    "summary": "Get List custom",
+    "description": "",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "security": [
+      {
+        "Bearer": []
+      }
+    ],
+    "parameters": [
+      {
+        "in": "body",
+        "type": "body",
+        "name": "body",
+        "required": true,
+        "description": "Body of request",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "continent": {
+              "type": "string"
+            },
+            "horns": {
+              "type": "string"
+            },
+            "minWeight": {
+              "type": "integer"
+            },
+            "maxWeight": {
+              "type": "integer"
+            },
+            "minHeight": {
+              "type": "integer"
+            },
+            "maxHeight": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "successful operation",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "continent": {
+                "type": "string"
+              },
+              "horns": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "picture": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "404": {
+        "description": "Not found",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}
